@@ -35,7 +35,7 @@ const modal = createAppKit({
   }
 })
 
-function ContextProvider({ children, cookies }) {
+function WCProvider({ children, cookies }) {
   const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig, cookies)
 
   return (
@@ -45,10 +45,5 @@ function ContextProvider({ children, cookies }) {
   )
 }
 
-// Define prop types
-// ContextProvider.propTypes = {
-//   children: PropTypes.node.isRequired,
-//   cookies: PropTypes.string
-// }
 
-export default ContextProvider
+export default WCProvider

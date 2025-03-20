@@ -1,9 +1,9 @@
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
-
+import Nav from "@components/Nav";
 const inter = Inter({ subsets: ['latin'] });
 
-import ContextProvider from '@/context';
+import WCProvider from '@/wagmi';
 
 
 export const metadata = {
@@ -13,12 +13,21 @@ export const metadata = {
 
 
 export default async function RootLayout({ children }) {
-  
+
 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ContextProvider >{children}</ContextProvider>
+      <WCProvider >
+        {/* <WCProvider >{children}</WCProvider> */}
+        <div className="main">
+          <div className="gradient"></div>
+        </div>
+        <main className="app">
+          <Nav />
+          {children}
+        </main>
+        </WCProvider>
       </body>
     </html>
   );
